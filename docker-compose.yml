@@ -21,6 +21,8 @@ services:
         hard: -1
     networks:
       - elastic
+    restart: unless-stopped
+
   kibana:
       depends_on:
         - elasticsearch
@@ -33,6 +35,8 @@ services:
         - "5601:5601"
       networks:
         - elastic
+      restart: unless-stopped
+        
 networks:
   elastic:
     driver: bridge
